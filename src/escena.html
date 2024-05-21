@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -41,7 +43,7 @@
         </a-entity>
 
         <!-- Pie Chart1 Entity -->
-        <a-entity id="pieChart1" babia-pie='legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
+        <a-entity class="gap-20" id="pieChart1" babia-pie='legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
                          data: [
                             {"TIPOCURSO_DESC": "Formación - Curso de formación online", "Recuento de TIPOCURSO_DESC": 12798},
                             {"TIPOCURSO_DESC": "Formación - Curso de Formación", "Recuento de TIPOCURSO_DESC": 5142},
