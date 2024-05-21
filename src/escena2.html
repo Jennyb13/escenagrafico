@@ -9,13 +9,14 @@
   <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
+  <script src="app.js" type="module"></script>
 </head>
 
 <body>
   <a-scene>
     <!-- Importar ambiente de oficina -->
     <a-assets>
-      <a-asset-item id="office" src="assets\escenaaegrafic.blend"></a-asset-item>
+      <a-asset-item id="office" src="assets\escenaaegrafic.glb"></a-asset-item>
     </a-assets>
 
     <!-- Entorno de la oficina -->
@@ -70,7 +71,7 @@
       });
     </script>
   </a-scene>
-  <script src="app.js" type="module"></script>
+
 
 
 </body>

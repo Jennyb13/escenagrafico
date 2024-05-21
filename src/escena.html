@@ -6,19 +6,16 @@
     <title>3D Charts with A-Frame and BabiaXR</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
 </head>
 
 <body>
     <a-scene>
         <!-- Importar ambiente de oficina -->
         <a-assets>
-            <a-asset-item id="office"
-                src="assets\escenaaegrafic.glb"></a-asset-item>
+            <a-asset-item id="office" src="assets/escenaaegrafic.glb"></a-asset-item>
         </a-assets>
 
         <!-- Entorno de la oficina -->
@@ -86,39 +83,68 @@
             scale="70 20 70" 
             visible="false"></a-entity>
           
-      
-         <!-- Video Entity -->
-        <a-video src="assets\Saltavideosala.mp4" 
+        <!-- Video Entity -->
+        <a-video id="video" src="assets/Saltavideosala.mp4" 
             width="25" 
             height="15" 
             position="-44 200 -710" 
-            scale="20 20 20"></a-video>
+            scale="20 20 20"
+            visible="false"></a-video>
 
         <!-- Tarea de Descripción de Video -->
         <a-entity babia-task="taskVideo: true; taskVideoId: video"></a-entity>
-      
-
-        <!-- Evento de Click para Mostrar/Esconder Gráficos -->
-        <script>
-            var chartsVisible = false;
-
-            document.querySelector('a-scene').addEventListener('click', function () {
-                if (!chartsVisible) {
-                  document.querySelector('#pieChart1').setAttribute('visible', 'true');
-                  document.querySelector('#pieChart2').setAttribute('visible', 'true');
-                  document.querySelector('video').play(); // Iniciar la reproducción del video
-                  chartsVisible = true;
-                  } 
-              else {
-                  document.querySelector('#pieChart1').setAttribute('visible', 'false');
-                  document.querySelector('#pieChart2').setAttribute('visible', 'false');
-                  document.querySelector('video').pause(); // Pausar la reproducción del video
-                  chartsVisible = false;
-                  }
-
-            });
-        </script>
     </a-scene>
+
+    <!-- Script para manejar los eventos de la escena -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Variables y constantes para los gráficos y el video
+            const pieChart1 = document.querySelector('#pieChart1');
+            const pieChart2 = document.querySelector('#pieChart2');
+            const video = document.querySelector('#video');
+
+            if (!pieChart1 || !pieChart2 || !video) {
+                console.error('Elementos gráficos o video no encontrados en el DOM.');
+                return;
+            }
+
+            let clickCount = 0;
+
+            // Función para manejar la visibilidad de gráficos y video
+            async function handleVisibility() {
+                try {
+                    if (clickCount === 0) {
+                        console.log('Mostrar gráficos');
+                        // Mostrar gráficos
+                        pieChart1.setAttribute('visible', 'true');
+                        pieChart2.setAttribute('visible', 'true');
+                    } else if (clickCount === 1) {
+                        console.log('Ocultar gráficos');
+                        // Ocultar gráficos
+                        pieChart1.setAttribute('visible', 'false');
+                        pieChart2.setAttribute('visible', 'false');
+                    } else if (clickCount === 2) {
+                        console.log('Mostrar y reproducir video');
+                        // Mostrar y reproducir video
+                        video.setAttribute('visible', 'true');
+                        await video.play();
+                    } else if (clickCount === 3) {
+                        console.log('Pausar y ocultar video');
+                        // Pausar y ocultar video
+                        video.pause();
+                        video.setAttribute('visible', 'false');
+                    }
+                    // Incrementar el contador de clics
+                    clickCount = (clickCount + 1) % 4;
+                } catch (error) {
+                    console.error('Error en el manejo de visibilidad:', error);
+                }
+            }
+
+            // Evento de click en la escena
+            document.querySelector('a-scene').addEventListener('click', handleVisibility);
+        });
+    </script>
 </body>
 
 </html>
