@@ -2,32 +2,82 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>3D Charts with A-Frame and BabiaXR</title>
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
-  <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
-  <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
-  <script src="app.js" type="module"></script>
+    <meta charset="UTF-8">
+    <title>3D Charts with A-Frame and BabiaXR</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+   <!-- Script para manejar los eventos de la escena -->
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Variables y constantes para los gráficos y el video
+        const pieChart1 = document.querySelector('#pieChart1');
+        const pieChart2 = document.querySelector('#pieChart2');
+        const video = document.querySelector('#video');
 
+        if (!pieChart1 || !pieChart2 || !video) {
+            console.error('Elementos gráficos o video no encontrados en el DOM.');
+            return;
+        }
+
+        let clickCount = 0;
+
+        // Función para manejar la visibilidad de gráficos y video
+        async function handleVisibility() {
+            try {
+                if (clickCount === 0) {
+                    console.log('Mostrar gráficos');
+                    // Mostrar gráficos
+                    pieChart1.setAttribute('visible', 'true');
+                    pieChart2.setAttribute('visible', 'true');
+                } else if (clickCount === 1) {
+                    console.log('Ocultar gráficos');
+                    // Ocultar gráficos
+                    pieChart1.setAttribute('visible', 'false');
+                    pieChart2.setAttribute('visible', 'false');
+                } else if (clickCount === 2) {
+                    console.log('Mostrar y reproducir video');
+                    // Mostrar y reproducir video
+                    video.setAttribute('visible', 'true');
+                    await video.play();
+                } else if (clickCount === 3) {
+                    console.log('Pausar y ocultar video');
+                    // Pausar y ocultar video
+                    video.pause();
+                    video.setAttribute('visible', 'false');
+                }
+                // Incrementar el contador de clics
+                clickCount = (clickCount + 1) % 4;
+            } catch (error) {
+                console.error('Error en el manejo de visibilidad:', error);
+            }
+        }
+
+        // Evento de click en la escena
+        document.querySelector('a-scene').addEventListener('click', handleVisibility);
+    });
+</script>
 <body>
-  <a-scene>
-    <!-- Importar ambiente de oficina -->
-    <a-assets>
-      <a-asset-item id="office" src="assets\escenaaegrafic.glb"></a-asset-item>
-    </a-assets>
+    <a-scene stats>
+        <!-- Importar ambiente de oficina -->
+        <a-assets>
+            <a-asset-item id="office" src="assets/escenaaegrafic.glb"></a-asset-item>
+        </a-assets>
 
-    <!-- Entorno de la oficina -->
-    <a-entity gltf-model="#office" scale="150 100 150" rotation="0 270 0" position="-49 109 -970"></a-entity>
+        <!-- Entorno de la oficina -->
+        <a-entity gltf-model="#office" scale="150 100 150" rotation="0 270 0" position="-49 109 -970"></a-entity>
 
-    <!-- Light -->
-    <a-light type="point" intensity="1" position="140 20 4.86"></a-light>
+        <!-- Light -->
+        <a-light type="point" intensity="1" position="-10 166 30"></a-light>
 
-    <!-- Camera with Orbit Controls -->
-    <a-entity position="170 5 105">
-      <a-entity camera look-controls orbit-controls="
+        <!-- Camera with Orbit Controls -->
+        <a-entity position="0.803 80 105">
+            <a-entity camera look-controls orbit-controls="
           autoRotate: false; 
           enableDamping: true; 
           dampingFactor: 0.25; 
@@ -35,45 +85,68 @@
           minDistance: 1; 
           maxDistance: 20;
           enableZoom: true;
-          zoomSpeed: 1.0;
-        ">
-      </a-entity>
-      <a-entity cursor="rayOrigin: mouse"></a-entity>
-      <a-entity laser-controls="hand: right"></a-entity>
-    </a-entity>
+          zoomSpeed: 1.0;">
+            </a-entity>
+            <a-entity cursor="rayOrigin: mouse"></a-entity>
+            <a-entity laser-controls="hand: right"></a-entity>
+        </a-entity>
 
-    <!-- Pie Chart Entity -->
-    <!-- Data Entity for JSON -->
-    <a-entity id="data" babia-queryjson="data.json"></a-entity>
+        <!-- Pie Chart1 Entity -->
+        <a-entity class="gap-20" id="pieChart1" babia-pie='legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
+                         data: [
+                            {"TIPOCURSO_DESC": "Formación - Curso de formación online", "Recuento de TIPOCURSO_DESC": 12798},
+                            {"TIPOCURSO_DESC": "Formación - Curso de Formación", "Recuento de TIPOCURSO_DESC": 5142},
+                            {"TIPOCURSO_DESC": "Formación - Certificado de Profesionalidad", "Recuento de TIPOCURSO_DESC": 3202},
+                            {"TIPOCURSO_DESC": "PFAs - Curso de Formación", "Recuento de TIPOCURSO_DESC": 3169},
+                            {"TIPOCURSO_DESC": "Talleres - Curso de Formación", "Recuento de TIPOCURSO_DESC": 2744},
+                            {"TIPOCURSO_DESC": "PFAs - Certificado de Profesionalidad", "Recuento de TIPOCURSO_DESC": 2403},
+                            {"TIPOCURSO_DESC": "Otros - Itinerario sociolaboral", "Recuento de TIPOCURSO_DESC": 1002},
+                            {"TIPOCURSO_DESC": "Formación - Módulo", "Recuento de TIPOCURSO_DESC": 801},
+                            {"TIPOCURSO_DESC": "Talleres - Certificado de Profesionalidad", "Recuento de TIPOCURSO_DESC": 439},
+                            {"TIPOCURSO_DESC": "Formación - Especialidad Formativa Sepe", "Recuento de TIPOCURSO_DESC": 319},
+                            {"TIPOCURSO_DESC": "Otros - Seminario", "Recuento de TIPOCURSO_DESC": 260},
+                            {"TIPOCURSO_DESC": "Otros - Curso de Formación", "Recuento de TIPOCURSO_DESC": 188},
+                            {"TIPOCURSO_DESC": "Otros - Reinvención", "Recuento de TIPOCURSO_DESC": 101}]'
+            position="284 115.90 -190" 
+            rotation="90 0 0" 
+            scale="70 20 70" 
+            visible="false"></a-entity>
+            
+        <!-- Pie Chart2 Entity -->
+        <a-entity id="pieChart2" babia-pie='legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
+                        data:[
+                         {"AZ": "AZ Puente Vallecas","Recuento de AZ": 167687},
+                         {"AZ": "AZ Villaverde","Recuento de AZ": 116132},
+                         {"AZ": "AZ Vicálvaro","Recuento de AZ": 112788},
+                         {"AZ": "AZ Arganzuela","Recuento de AZ": 97564},
+                         {"AZ": "AZ Hortaleza-Barajas","Recuento de AZ": 91168},
+                         {"AZ": "Programas Fomento Empleo","Recuento de AZ": 85437},
+                         { "AZ": "AZ Carabanchel","Recuento de AZ": 81646},
+                         { "AZ": "AZ Retiro","Recuento de AZ": 79265},
+                         {"AZ": "AZ Tetúan","Recuento de AZ": 73415},
+                         { "AZ": "Talento y Empresas", "Recuento de AZ": 28011},
+                         { "AZ": "AutoEmpleo","Recuento de AZ": 9590},
+                         {"AZ": "Formación", "Recuento de AZ": 1491},
+                         {"AZ": "Programas Especiales","Recuento de AZ": 1064},
+                         { "AZ": "AZ-Otros Municipios","Recuento de AZ": 636}]' 
+            position="-376 115.90 -190" 
+            rotation="90 0 0" 
+            scale="70 20 70" 
+            visible="false"></a-entity>
+          
+        <!-- Video Entity -->
+        <a-video id="video" src="assets/Saltavideosala.mp4" 
+            width="25" 
+            height="15" 
+            position="-44 200 -710" 
+            scale="20 20 20"
+            visible="false"></a-video>
 
-    <!-- Pie Chart Entity -->
-    <a-entity id="pieChart"
-      babia-pie='legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC' 
-      position="-100 0 70"
-      rotation="90 90 0" 
-      scale="30 30 30" 
-      visible="true">
-    </a-entity>
+        <!-- Tarea de Descripción de Video -->
+        <a-entity babia-task="taskVideo: true; taskVideoId: video"></a-entity>
+    </a-scene>
 
-    <!-- Evento de Click para Mostrar/Esconder Gráfico -->
-    <script>
-      var pieChartVisible = false;
-
-      document.querySelector('a-scene').addEventListener('click', function () {
-        if (!pieChartVisible) {
-          document.querySelector('#pieChart').setAttribute('visible', 'true');
-          pieChartVisible = true;
-        } else {
-          document.querySelector('#pieChart').setAttribute('visible', 'false');
-          pieChartVisible = false;
-        }
-
-      });
-    </script>
-  </a-scene>
-
-
-
+   
 </body>
 
 </html>

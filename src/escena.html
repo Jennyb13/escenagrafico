@@ -29,11 +29,73 @@
     </style>
     
 </head>
+    <!-- Script para manejar los eventos de la escena -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Variables y constantes para los gráficos y el video
+            const pieChart1 = document.querySelector('#pieChart1');
+            const pieChart2 = document.querySelector('#pieChart2');
+            const video = document.querySelector('#video');
+            const videoButton = document.querySelector('#videoButton');
 
+            if (!pieChart1 || !pieChart2 || !video || !videoButton) {
+                console.error('Elementos gráficos, video o botón no encontrados en el DOM.');
+                return
+            }
+
+            let clickCount = 0;
+
+            // Función para manejar la visibilidad de gráficos y video
+            async function handleVisibility() {
+                try {
+                    if (clickCount === 0) {
+                        console.log('Mostrar gráficos');
+                        // Mostrar gráficos
+                        pieChart1.setAttribute('visible', 'true');
+                        pieChart2.setAttribute('visible', 'true');
+                    } else if (clickCount === 1) {
+                        console.log('Ocultar gráficos');
+                        // Ocultar gráficos
+                        pieChart1.setAttribute('visible', 'false');
+                        pieChart2.setAttribute('visible', 'false');
+                    } else if (clickCount === 2) {
+                        console.log('Mostrar y reproducir video');
+                        // Mostrar y reproducir video
+                        video.setAttribute('visible', 'true');
+                        await video.play();
+                    } else if (clickCount === 3) {
+                        console.log('Pausar y ocultar video');
+                        // Pausar y ocultar video
+                        video.pause();
+                        video.setAttribute('visible', 'false');
+                    }
+                    // Incrementar el contador de clics
+                    clickCount = (clickCount + 1) % 4;
+                } catch (error) {
+                    console.error('Error en el manejo de visibilidad:', error);
+                }
+            }
+
+            // Evento de click en el botón de reproducción
+            playButton.addEventListener('click', async () => {
+                if (!video.getAttribute('visible')) {
+                    video.setAttribute('visible', 'true');
+                    await video.play();
+                } else {
+                    video.pause();
+                    video.setAttribute('visible', 'false');
+                }
+            });
+
+            // Evento de click en la escena
+            document.querySelector('a-scene').addEventListener('click', handleVisibility);
+        });
+    </script>
 <body>
-    <div id="avatar" > Hola mundo </div>
-    <div class="bg" >
-        <a-scene>
+
+   
+    
+        <a-scene stats>
         <!-- Importar ambiente de oficina -->
         <a-assets>
             <a-asset-item id="office" src="assets\escenaaeggrafic2.glb"></a-asset-item>
@@ -126,69 +188,7 @@
            
 
         </a-scene>
-    </div>
-
-    <!-- Script para manejar los eventos de la escena -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Variables y constantes para los gráficos y el video
-            const pieChart1 = document.querySelector('#pieChart1');
-            const pieChart2 = document.querySelector('#pieChart2');
-            const video = document.querySelector('#video');
-            const videoButton = document.querySelector('#videoButton');
-
-            if (!pieChart1 || !pieChart2 || !video || !videoButton) {
-                console.error('Elementos gráficos, video o botón no encontrados en el DOM.');
-                return
-            }
-
-            let clickCount = 0;
-
-            // Función para manejar la visibilidad de gráficos y video
-            async function handleVisibility() {
-                try {
-                    if (clickCount === 0) {
-                        console.log('Mostrar gráficos');
-                        // Mostrar gráficos
-                        pieChart1.setAttribute('visible', 'true');
-                        pieChart2.setAttribute('visible', 'true');
-                    } else if (clickCount === 1) {
-                        console.log('Ocultar gráficos');
-                        // Ocultar gráficos
-                        pieChart1.setAttribute('visible', 'false');
-                        pieChart2.setAttribute('visible', 'false');
-                    } else if (clickCount === 2) {
-                        console.log('Mostrar y reproducir video');
-                        // Mostrar y reproducir video
-                        video.setAttribute('visible', 'true');
-                        await video.play();
-                    } else if (clickCount === 3) {
-                        console.log('Pausar y ocultar video');
-                        // Pausar y ocultar video
-                        video.pause();
-                        video.setAttribute('visible', 'false');
-                    }
-                    // Incrementar el contador de clics
-                    clickCount = (clickCount + 1) % 4;
-                } catch (error) {
-                    console.error('Error en el manejo de visibilidad:', error);
-                }
-            }
-
-            // Evento de click en el botón de reproducción
-            playButton.addEventListener('click', async () => {
-                if (!video.getAttribute('visible')) {
-                    video.setAttribute('visible', 'true');
-                    await video.play();
-                } else {
-                    video.pause();
-                    video.setAttribute('visible', 'false');
-                }
-            });
-
-            // Evento de click en la escena
-            document.querySelector('a-scene').addEventListener('click', handleVisibility);
-        });
-    </script>
+   
+ 
 </body>
 </html>
