@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>3D Charts with A-Frame and BabiaXR</title>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>3D Charts with A-Frame and BabiaXR</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-   <!-- Script para manejar los eventos de la escena -->
-   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Variables y constantes para los gráficos y el video
-        const pieChart1 = document.querySelector('#pieChart1');
-        const pieChart2 = document.querySelector('#pieChart2');
-        const video = document.querySelector('#video');
 
-        if (!pieChart1 || !pieChart2 || !video) {
-            console.error('Elementos gráficos o video no encontrados en el DOM.');
-            return;
-        }
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      // Variables y constantes para los gráficos y el video
+      const pieChart1 = document.querySelector('#pieChart1');
+      const pieChart2 = document.querySelector('#pieChart2');
+      const video = document.querySelector('#video');
 
-        let clickCount = 0;
+      if (!pieChart1 || !pieChart2 || !video) {
+          console.error('Elementos gráficos o video no encontrados en el DOM.');
+          return;
+      }
 
-        // Función para manejar la visibilidad de gráficos y video
-        async function handleVisibility() {
-            try {
-                if (clickCount === 0) {
-                    console.log('Mostrar gráficos');
-                    // Mostrar gráficos
-                    pieChart1.setAttribute('visible', 'true');
-                    pieChart2.setAttribute('visible', 'true');
-                } else if (clickCount === 1) {
-                    console.log('Ocultar gráficos');
-                    // Ocultar gráficos
-                    pieChart1.setAttribute('visible', 'false');
-                    pieChart2.setAttribute('visible', 'false');
-                } else if (clickCount === 2) {
-                    console.log('Mostrar y reproducir video');
-                    // Mostrar y reproducir video
-                    video.setAttribute('visible', 'true');
-                    await video.play();
-                } else if (clickCount === 3) {
-                    console.log('Pausar y ocultar video');
-                    // Pausar y ocultar video
-                    video.pause();
-                    video.setAttribute('visible', 'false');
-                }
-                // Incrementar el contador de clics
-                clickCount = (clickCount + 1) % 4;
-            } catch (error) {
-                console.error('Error en el manejo de visibilidad:', error);
-            }
-        }
+      let clickCount = 0;
 
-        // Evento de click en la escena
-        document.querySelector('a-scene').addEventListener('click', handleVisibility);
-    });
+      // Función para manejar la visibilidad de gráficos y video
+      async function handleVisibility() {
+          try {
+              if (clickCount === 0) {
+                  console.log('Mostrar gráficos');
+                  // Mostrar gráficos
+                  pieChart1.setAttribute('visible', 'true');
+                  pieChart2.setAttribute('visible', 'true');
+              } else if (clickCount === 1) {
+                  console.log('Ocultar gráficos');
+                  // Ocultar gráficos
+                  pieChart1.setAttribute('visible', 'false');
+                  pieChart2.setAttribute('visible', 'false');
+              } else if (clickCount === 2) {
+                  console.log('Mostrar y reproducir video');
+                  // Mostrar y reproducir video
+                  video.setAttribute('visible', 'true');
+                  await video.play();
+              } else if (clickCount === 3) {
+                  console.log('Pausar y ocultar video');
+                  // Pausar y ocultar video
+                  video.pause();
+                  video.setAttribute('visible', 'false');
+              }
+              // Incrementar el contador de clics
+              clickCount = (clickCount + 1) % 4;
+          } catch (error) {
+              console.error('Error en el manejo de visibilidad:', error);
+          }
+      }
+
+      // Evento de click en la escena
+      document.querySelector('a-scene').addEventListener('click', handleVisibility);
+  });
 </script>
+
 <body>
     <a-scene>
         <!-- Importar ambiente de oficina -->
@@ -140,7 +140,7 @@
             scale="70 20 70" 
             visible="false"></a-entity>
 
-           <!-- Pie Chart3 Sector Industrial y Energetico Entity -->
+          <!-- Pie Chart3 Sector Industrial y Energetico Entity -->
             <a-entity id="pieChart3" babia-pie='
                 legend: true; palette: flat; key: CNAE_DESC; size: Recuento_de_CNAE_DESC;
                 data: [
@@ -163,11 +163,11 @@
                 ]' position="-364 110.4 -170,5" 
                    rotation="90 0 0" 
                    scale="70 20 70" 
-                   visible="true"
+                   visible="false"
                    animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
             </a-entity>
 
-            <!-- Pie Chart4 Sector Servicios Entity -->
+          <!-- Pie Chart4 Sector Servicios Entity -->
             <a-entity id="PieChart4" babia-pie='
             legend: true; 
             palette: foxy; 
@@ -195,8 +195,9 @@
             position="264 73 -198.6" 
             rotation="90 0 0" 
             scale="70 20 70"
-            visible="true"
+            visible="false"
             animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+          </a-entity>
 
           <!-- Pie Chart5 Actividades primarias y de transporte Entity -->
           <a-entity id="pieChart5" babia-pie='
@@ -217,7 +218,7 @@
             position="-36 102.7 -345" 
             rotation="90 0 0" 
             scale="70 20 70"
-            visible="true"
+            visible="false"
             animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
           </a-entity>
 
