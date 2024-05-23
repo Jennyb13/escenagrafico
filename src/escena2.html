@@ -63,14 +63,18 @@
     });
 </script>
 <body>
-    <a-scene stats>
+    <a-scene>
         <!-- Importar ambiente de oficina -->
         <a-assets>
-            <a-asset-item id="office" src="assets/escenaaegrafic.glb"></a-asset-item>
+            <a-asset-item id="office" src="assets\escenaaeggrafic2.glb"></a-asset-item>
         </a-assets>
 
         <!-- Entorno de la oficina -->
-        <a-entity gltf-model="#office" scale="150 100 150" rotation="0 270 0" position="-49 109 -970"></a-entity>
+        <a-entity 
+        gltf-model="#office" 
+        scale="120 100 120" 
+        rotation="0 270 0" 
+        position="-49 109 -970"></a-entity>
 
         <!-- Light -->
         <a-light type="point" intensity="1" position="-10 166 30"></a-light>
@@ -92,7 +96,8 @@
         </a-entity>
 
         <!-- Pie Chart1 Entity -->
-        <a-entity class="gap-20" id="pieChart1" babia-pie='legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
+        <a-entity class="gap-20" id="pieChart1" babia-pie='
+        legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
                          data: [
                             {"TIPOCURSO_DESC": "Formación - Curso de formación online", "Recuento de TIPOCURSO_DESC": 12798},
                             {"TIPOCURSO_DESC": "Formación - Curso de Formación", "Recuento de TIPOCURSO_DESC": 5142},
@@ -107,13 +112,14 @@
                             {"TIPOCURSO_DESC": "Otros - Seminario", "Recuento de TIPOCURSO_DESC": 260},
                             {"TIPOCURSO_DESC": "Otros - Curso de Formación", "Recuento de TIPOCURSO_DESC": 188},
                             {"TIPOCURSO_DESC": "Otros - Reinvención", "Recuento de TIPOCURSO_DESC": 101}]'
-            position="284 115.90 -190" 
+            position="267 115.90 -316" 
             rotation="90 0 0" 
             scale="70 20 70" 
             visible="false"></a-entity>
             
         <!-- Pie Chart2 Entity -->
-        <a-entity id="pieChart2" babia-pie='legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
+        <a-entity id="pieChart2" babia-pie='
+        legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
                         data:[
                          {"AZ": "AZ Puente Vallecas","Recuento de AZ": 167687},
                          {"AZ": "AZ Villaverde","Recuento de AZ": 116132},
@@ -129,11 +135,68 @@
                          {"AZ": "Formación", "Recuento de AZ": 1491},
                          {"AZ": "Programas Especiales","Recuento de AZ": 1064},
                          { "AZ": "AZ-Otros Municipios","Recuento de AZ": 636}]' 
-            position="-376 115.90 -190" 
+            position="-360 115.90 -320" 
             rotation="90 0 0" 
             scale="70 20 70" 
             visible="false"></a-entity>
-          
+
+            <a-entity id="pieChart3" babia-pie='
+                legend: true; palette: flat; key: CNAE_DESC; size: Recuento_de_CNAE_DESC;
+                data: [
+                    { "CNAE_DESC": "Industria de productos alimenticios y bebidas", "Recuento_de_CNAE_DESC": 1354 },
+                    { "CNAE_DESC": "Industria química", "Recuento_de_CNAE_DESC": 314 },
+                    { "CNAE_DESC": "Producción y distribución de energía eléctrica, gas, vapor y agua caliente", "Recuento_de_CNAE_DESC": 264 },
+                    { "CNAE_DESC": "Edición, artes gráficas y reproducción de soportes grabados", "Recuento_de_CNAE_DESC": 252 },
+                    { "CNAE_DESC": "Fabricación de textiles y productos textiles", "Recuento_de_CNAE_DESC": 165 },
+                    { "CNAE_DESC": "Metalurgia", "Recuento_de_CNAE_DESC": 153 },
+                    { "CNAE_DESC": "Industria de la construcción de maquinaria y equipo mecánico", "Recuento_de_CNAE_DESC": 113 },
+                    { "CNAE_DESC": "Fabricación de vehículos de motor, remolques y semirremolques", "Recuento_de_CNAE_DESC": 104 },
+                    { "CNAE_DESC": "Fabricación de material electrónico. Fabricación de equipo y aparatos de radio, televisión y comunicaciones", "Recuento_de_CNAE_DESC": 154 },
+                    { "CNAE_DESC": "Industria de la confección y de la peletería", "Recuento_de_CNAE_DESC": 24 },
+                    { "CNAE_DESC": "Industria del papel", "Recuento_de_CNAE_DESC": 18 },
+                    { "CNAE_DESC": "Fabricación de productos de caucho y materias plásticas", "Recuento_de_CNAE_DESC": 41 },
+                    { "CNAE_DESC": "Reciclaje", "Recuento_de_CNAE_DESC": 47 },
+                    { "CNAE_DESC": "Fabricación de muebles. Otras industrias manufactureras", "Recuento_de_CNAE_DESC": 49 },
+                    { "CNAE_DESC": "Fabricación de equipo e instrumentos medico-quirúrgicos, de precisión óptica y relojería", "Recuento_de_CNAE_DESC": 11 },
+                    { "CNAE_DESC": "Industria de la madera y del corcho, excepto muebles, cestería y espartería", "Recuento_de_CNAE_DESC": 11 }
+                ]' position="-364 110.4 -170,5" 
+                   rotation="90 0 0" 
+                   scale="70 20 70" 
+                   visible="true"
+                   animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            </a-entity>
+
+            <!-- Pie Chart4 Entity -->
+            <a-entity id="pieChart4" babia-pie='
+                    legend: true; palette: sunset;
+                    key: CNAE_DESC;
+                    size: Recuento_de_CNAE_DESC;
+                    data: [
+                        { "CNAE_DESC": "Administración pública, defensa y seguridad social obligatoria", "Recuento de CNAE_DESC": 13273 },
+                        { "CNAE_DESC": "Actividades sanitarias y veterinarias, servicios sociales", "Recuento de CNAE_DESC": 5637 },
+                        { "CNAE_DESC": "Hostelería", "Recuento de CNAE_DESC": 4977 },
+                        { "CNAE_DESC": "Comercio al por menor, excepto el comercio de vehículos de motor, motocicletas y ciclomotores, reparación de efectos personales y enseres domésticos", "Recuento de CNAE_DESC": 7941 },
+                        { "CNAE_DESC": "Comercio al por mayor e intermediarios del comercio, excepto de vehículos de motor y motocicletas", "Recuento de CNAE_DESC": 4672 },
+                        { "CNAE_DESC": "Actividades recreativas, culturales y deportivas", "Recuento de CNAE_DESC": 998 },
+                        { "CNAE_DESC": "Actividades diversas de servicios personales", "Recuento de CNAE_DESC": 1012 },
+                        { "CNAE_DESC": "Actividades asociativas", "Recuento de CNAE_DESC": 1212 },
+                        { "CNAE_DESC": "Educación", "Recuento de CNAE_DESC": 1109 },
+                        { "CNAE_DESC": "Transporte terrestre; Transporte por tuberías", "Recuento de CNAE_DESC": 1146 },
+                        { "CNAE_DESC": "Actividades anexas a los transportes Actividades de agencias de viaje", "Recuento de CNAE_DESC": 415 },
+                        { "CNAE_DESC": "Hogares que emplean personal doméstico", "Recuento de CNAE_DESC": 391 },
+                        { "CNAE_DESC": "Actividades inmobiliarias", "Recuento de CNAE_DESC": 388 },
+                        { "CNAE_DESC": "Actividades de saneamiento privado", "Recuento de CNAE_DESC": 296 },
+                        { "CNAE_DESC": "Correos y telecomunicaciones", "Recuento de CNAE_DESC": 123 },
+                        { "CNAE_DESC": "Actividades auxiliares a la intermediación financiera", "Recuento de CNAE_DESC": 73 },
+                        { "CNAE_DESC": "Actividades informáticas", "Recuento de CNAE_DESC": 804 }
+                    ]' 
+                    position="230 76 -94" 
+                    rotation="90 0 0" 
+                    scale="70 20 70" 
+                    visible="true"
+                    animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            </a-entity>
+  
         <!-- Video Entity -->
         <a-video id="video" src="assets/Saltavideosala.mp4" 
             width="25" 
