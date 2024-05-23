@@ -61,7 +61,7 @@
             }
 
             // Evento de click en el botón de reproducción
-            playButton.addEventListener('click', async () => {
+            videoButton.addEventListener('click', async () => {
                 if (!video.getAttribute('visible')) {
                     video.setAttribute('visible', 'true');
                     await video.play();
@@ -174,8 +174,11 @@
         material="color: #4CAF50" 
         text="value: Play Video; align: center"
         position="-44 22.29 -671" 
-        scale="70 50 50"></a-entity>
+        scale="70 50 50">
+        <button>
 
+        </button></a-entity>
+        
     </a-scene>
  
 </body>
