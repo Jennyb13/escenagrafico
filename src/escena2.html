@@ -10,7 +10,19 @@
   <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
   <link rel="stylesheet" href="output.css">
   <link rel="stylesheet" href="styles.css">
-</head>
+
+  <script>
+    AFRAME.registerComponent('pause-animation-on-hover', {
+      init: function () {
+        this.el.addEventListener('mouseenter', () => {
+          this.el.components.animation.pause();
+        });
+        this.el.addEventListener('mouseleave', () => {
+          this.el.components.animation.play();
+        });
+      }
+    });
+  </script>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -61,7 +73,7 @@
       document.querySelector('a-scene').addEventListener('click', handleVisibility);
   });
 </script>
-
+</head>
 <body>
     <a-scene>
         <!-- Importar ambiente de oficina -->
@@ -163,8 +175,8 @@
                 ]' position="-364 110.4 -170,5" 
                    rotation="90 0 0" 
                    scale="70 20 70" 
-                   visible="false"
-                   animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+                   visible="true"
+                   animation="property: rotation; to: 0 360 0; loop: true; dur: 7000">
             </a-entity>
 
           <!-- Pie Chart4 Sector Servicios Entity -->
@@ -195,8 +207,8 @@
             position="264 73 -198.6" 
             rotation="90 0 0" 
             scale="70 20 70"
-            visible="false"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            visible="true"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 7000">
           </a-entity>
 
           <!-- Pie Chart5 Actividades primarias y de transporte Entity -->
@@ -218,8 +230,9 @@
             position="-36 102.7 -345" 
             rotation="90 0 0" 
             scale="70 20 70"
-            visible="false"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            visible="true"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+            pause-animation-on-hover>
           </a-entity>
 
   
