@@ -95,8 +95,8 @@
             <a-entity laser-controls="hand: right"></a-entity>
         </a-entity>
 
-        <!-- Pie Chart1 Entity -->
-        <a-entity class="gap-20" id="pieChart1" babia-pie='
+        <!-- Pie Chart1 Plazas por Curso Entity -->
+        <a-entity id="pieChart1" babia-pie='
         legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
                          data: [
                             {"TIPOCURSO_DESC": "Formación - Curso de formación online", "Recuento de TIPOCURSO_DESC": 12798},
@@ -117,7 +117,7 @@
             scale="70 20 70" 
             visible="false"></a-entity>
             
-        <!-- Pie Chart2 Entity -->
+        <!-- Pie Chart2 Orientacion Entity -->
         <a-entity id="pieChart2" babia-pie='
         legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
                         data:[
@@ -140,6 +140,7 @@
             scale="70 20 70" 
             visible="false"></a-entity>
 
+           <!-- Pie Chart3 Sector Industrial y Energetico Entity -->
             <a-entity id="pieChart3" babia-pie='
                 legend: true; palette: flat; key: CNAE_DESC; size: Recuento_de_CNAE_DESC;
                 data: [
@@ -166,39 +167,63 @@
                    animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
             </a-entity>
 
-            <!-- Pie Chart4 Entity -->
-            <a-entity id="pieChart4" babia-pie='
-                    legend: true; palette: sunset;
-                    key: CNAE_DESC;
-                    size: Recuento_de_CNAE_DESC;
-                    data: [
-                        { "CNAE_DESC": "Administración pública, defensa y seguridad social obligatoria", "Recuento de CNAE_DESC": 13273 },
-                        { "CNAE_DESC": "Actividades sanitarias y veterinarias, servicios sociales", "Recuento de CNAE_DESC": 5637 },
-                        { "CNAE_DESC": "Hostelería", "Recuento de CNAE_DESC": 4977 },
-                        { "CNAE_DESC": "Comercio al por menor, excepto el comercio de vehículos de motor, motocicletas y ciclomotores, reparación de efectos personales y enseres domésticos", "Recuento de CNAE_DESC": 7941 },
-                        { "CNAE_DESC": "Comercio al por mayor e intermediarios del comercio, excepto de vehículos de motor y motocicletas", "Recuento de CNAE_DESC": 4672 },
-                        { "CNAE_DESC": "Actividades recreativas, culturales y deportivas", "Recuento de CNAE_DESC": 998 },
-                        { "CNAE_DESC": "Actividades diversas de servicios personales", "Recuento de CNAE_DESC": 1012 },
-                        { "CNAE_DESC": "Actividades asociativas", "Recuento de CNAE_DESC": 1212 },
-                        { "CNAE_DESC": "Educación", "Recuento de CNAE_DESC": 1109 },
-                        { "CNAE_DESC": "Transporte terrestre; Transporte por tuberías", "Recuento de CNAE_DESC": 1146 },
-                        { "CNAE_DESC": "Actividades anexas a los transportes Actividades de agencias de viaje", "Recuento de CNAE_DESC": 415 },
-                        { "CNAE_DESC": "Hogares que emplean personal doméstico", "Recuento de CNAE_DESC": 391 },
-                        { "CNAE_DESC": "Actividades inmobiliarias", "Recuento de CNAE_DESC": 388 },
-                        { "CNAE_DESC": "Actividades de saneamiento privado", "Recuento de CNAE_DESC": 296 },
-                        { "CNAE_DESC": "Correos y telecomunicaciones", "Recuento de CNAE_DESC": 123 },
-                        { "CNAE_DESC": "Actividades auxiliares a la intermediación financiera", "Recuento de CNAE_DESC": 73 },
-                        { "CNAE_DESC": "Actividades informáticas", "Recuento de CNAE_DESC": 804 }
-                    ]' 
-                    position="230 76 -94" 
-                    rotation="90 0 0" 
-                    scale="70 20 70" 
-                    visible="true"
-                    animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-            </a-entity>
+            <!-- Pie Chart4 Sector Servicios Entity -->
+            <a-entity id="PieChart4" babia-pie='
+            legend: true; 
+            palette: foxy; 
+            key: CNAE_DESC; 
+            size: Recuento_de_CNAE_DESC; 
+            data: [
+                { "CNAE_DESC": "Administración pública, defensa y seguridad social obligatoria", "Recuento_de_CNAE_DESC": 13273 },
+                { "CNAE_DESC": "Actividades sanitarias y veterinarias, servicios sociales", "Recuento_de_CNAE_DESC": 5637 },
+                { "CNAE_DESC": "Hostelería", "Recuento_de_CNAE_DESC": 4977 },
+                { "CNAE_DESC": "Comercio al por menor, excepto el comercio de vehículos de motor, motocicletas y ciclomotores, reparación de efectos personales y enseres domésticos", "Recuento_de_CNAE_DESC": 7941 },
+                { "CNAE_DESC": "Comercio al por mayor e intermediarios del comercio, excepto de vehículos de motor y motocicletas", "Recuento_de_CNAE_DESC": 4672 },
+                { "CNAE_DESC": "Actividades recreativas, culturales y deportivas", "Recuento_de_CNAE_DESC": 998 },
+                { "CNAE_DESC": "Actividades diversas de servicios personales", "Recuento_de_CNAE_DESC": 1012 },
+                { "CNAE_DESC": "Actividades asociativas", "Recuento_de_CNAE_DESC": 1212 },
+                { "CNAE_DESC": "Educación", "Recuento_de_CNAE_DESC": 1109 },
+                { "CNAE_DESC": "Transporte terrestre Transporte por tuberías", "Recuento_de_CNAE_DESC": 1146 },
+                { "CNAE_DESC": "Actividades anexas a los transportes Actividades de agencias de viaje", "Recuento_de_CNAE_DESC": 415 },
+                { "CNAE_DESC": "Hogares que emplean personal doméstico", "Recuento_de_CNAE_DESC": 391 },
+                { "CNAE_DESC": "Actividades inmobiliarias", "Recuento_de_CNAE_DESC": 388 },
+                { "CNAE_DESC": "Actividades de saneamiento privado", "Recuento_de_CNAE_DESC": 296 },
+                { "CNAE_DESC": "Correos y telecomunicaciones", "Recuento_de_CNAE_DESC": 123 },
+                { "CNAE_DESC": "Actividades auxiliares a la intermediación financiera", "Recuento_de_CNAE_DESC": 73 },
+                { "CNAE_DESC": "Actividades informáticas", "Recuento_de_CNAE_DESC": 804 }
+            ]' 
+            position="264 73 -198.6" 
+            rotation="90 0 0" 
+            scale="70 20 70"
+            visible="true"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+
+          <!-- Pie Chart5 Actividades primarias y de transporte Entity -->
+          <a-entity id="pieChart5" babia-pie='
+            legend: true; 
+            palette: ubuntu; 
+            key: CNAE_DESC; 
+            size: Recuento_de_CNAE_DESC; 
+            data: [
+                { "CNAE_DESC": "Agricultura, ganadería caza y actividades de los servicios relacionados con las mismas", "Recuento_de_CNAE_DESC": 1088 },
+                { "CNAE_DESC": "Pesca, acuicultura y actividades de los servicios relacionados con las mismas", "Recuento_de_CNAE_DESC": 49 },
+                { "CNAE_DESC": "Extracción de crudos de petróleo y gas natural Actividades de los servicios relacionados con las explotaciones petrolíferas y de gas, excepto actividades de prospección", "Recuento_de_CNAE_DESC": 30 },
+                { "CNAE_DESC": "Selvicultura, explotación forestal y actividades de los servicios relacionados con las mismas", "Recuento_de_CNAE_DESC": 71 },
+                { "CNAE_DESC": "Transporte aéreo y espacial", "Recuento_de_CNAE_DESC": 32 },
+                { "CNAE_DESC": "Transporte marítimo, de cabotaje y otras vías de navegación interiores", "Recuento_de_CNAE_DESC": 16 },
+                { "CNAE_DESC": "Transporte terrestre, Transporte por tuberías", "Recuento_de_CNAE_DESC": 1146 },
+                { "CNAE_DESC": "Actividades anexas a los transportes, Actividades de agencias de viaje", "Recuento_de_CNAE_DESC": 415 }
+            ]' 
+            position="-36 102.7 -345" 
+            rotation="90 0 0" 
+            scale="70 20 70"
+            visible="true"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+          </a-entity>
+
   
         <!-- Video Entity -->
-        <a-video id="video" src="assets/Saltavideosala.mp4" 
+        <a-video id="video" src="assets/saltavideosala.mp4" 
             width="25" 
             height="15" 
             position="-44 200 -710" 
@@ -206,7 +231,7 @@
             visible="false"></a-video>
 
         <!-- Tarea de Descripción de Video -->
-        <a-entity babia-task="taskVideo: true; taskVideoId: video"></a-entity>
+        <a-entity babia-task="taskVideo: true; taskVideoId: video">
     </a-scene>
 
    
