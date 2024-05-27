@@ -41,21 +41,11 @@
         <!-- Light -->
         <a-light type="point" intensity="1" position="-10 166 30"></a-light>
 
-        <!-- Camera with Orbit Controls -->
-        <a-entity position="0.803 80 105">
-            <a-entity camera look-controls orbit-controls="
-                autoRotate: false; 
-                enableDamping: true; 
-                dampingFactor: 0.25; 
-                rotateSpeed: 0.25; 
-                minDistance: 1; 
-                maxDistance: 20;
-                enableZoom: true;
-                zoomSpeed: 1.0;">
-            </a-entity>
-            <a-entity cursor="rayOrigin: mouse"></a-entity>
-            <a-entity laser-controls="hand: right"></a-entity>
-        </a-entity>
+         <!-- Camera with WASD Controls -->
+      <a-entity camera wasd-controls="acceleration: 200" look-controls position="0.803 80 105">
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+      </a-entity>
 
         <!-- Pie Charts -->
         <a-entity id="pieChart1" babia-pie='
@@ -78,6 +68,7 @@
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
         pause-animation-on-hover></a-entity>
             
         <a-entity id="pieChart2" babia-pie='
@@ -101,7 +92,8 @@
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
-        pause-animation-on-hover ></a-entity>
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+        pause-animation-on-hover></a-entity>
 
         <a-entity id="pieChart3" babia-pie='
         legend: true; palette: flat; key: CNAE_DESC; size: Recuento_de_CNAE_DESC;
@@ -126,6 +118,7 @@
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
         pause-animation-on-hover>
         </a-entity>
 
@@ -133,27 +126,28 @@
       legend: true; palette: foxy; key: CNAE_DESC; size: Recuento_de_CNAE_DESC; 
       data: [
         { "CNAE_DESC": "Administración pública, defensa y seguridad social obligatoria", "Recuento_de_CNAE_DESC": 13273 },
-        { "CNAE_DESC": "Act sanitarias y veterinarias, servicios sociales", "Recuento_de_CNAE_DESC": 5637 },
+        { "CNAE_DESC": "Act sanitarias vet, serv sociales", "Recuento_de_CNAE_DESC": 5637 },
         { "CNAE_DESC": "Hostelería", "Recuento_de_CNAE_DESC": 4977 },
         { "CNAE_DESC": "Comercio al por menors", "Recuento_de_CNAE_DESC": 7941 },
         { "CNAE_DESC": "Comercio al por mayor ", "Recuento_de_CNAE_DESC": 4672 },
-        { "CNAE_DESC": "Actividades recreativas, culturales y deportivas", "Recuento_de_CNAE_DESC": 998 },
-        { "CNAE_DESC": "Actividades diversas de servicios personales", "Recuento_de_CNAE_DESC": 1012 },
-        { "CNAE_DESC": "Actividades asociativas", "Recuento_de_CNAE_DESC": 1212 },
+        { "CNAE_DESC": "Act recreativas, culturales y deportivas", "Recuento_de_CNAE_DESC": 998 },
+        { "CNAE_DESC": "Act diversas de servicios personales", "Recuento_de_CNAE_DESC": 1012 },
+        { "CNAE_DESC": "Act Asociativas", "Recuento_de_CNAE_DESC": 1212 },
         { "CNAE_DESC": "Educación", "Recuento_de_CNAE_DESC": 1109 },
-        { "CNAE_DESC": "Transporte terrestre Transporte por tuberías", "Recuento_de_CNAE_DESC": 1146 },
-        { "CNAE_DESC": "Act anexas a los transportes Actividades de agencias de viaje", "Recuento_de_CNAE_DESC": 415 },
-        { "CNAE_DESC": "Hogares que emplean personal doméstico", "Recuento_de_CNAE_DESC": 391 },
+        { "CNAE_DESC": "Transporte terrestre", "Recuento_de_CNAE_DESC": 1146 },
+        { "CNAE_DESC": "Act anexas a los transportes ", "Recuento_de_CNAE_DESC": 415 },
+        { "CNAE_DESC": "Hogares personal doméstico", "Recuento_de_CNAE_DESC": 391 },
         { "CNAE_DESC": "Act inmobiliarias", "Recuento_de_CNAE_DESC": 388 },
         { "CNAE_DESC": "Act Saneamiento privado", "Recuento_de_CNAE_DESC": 296 },
         { "CNAE_DESC": "Correos y telecomunicaciones", "Recuento_de_CNAE_DESC": 123 },
-        { "CNAE_DESC": "Act auxiliares a la intermediación financiera", "Recuento_de_CNAE_DESC": 73 },
+        { "CNAE_DESC": "Act aux intermediación financiera", "Recuento_de_CNAE_DESC": 73 },
         { "CNAE_DESC": "Act informáticas", "Recuento_de_CNAE_DESC": 804 }
       ]' 
       position="264 105.8 -198.6" 
       rotation="90 0 0" 
       scale="70 20 70"
       visible="false"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
       pause-animation-on-hover>
     </a-entity>
 
@@ -162,7 +156,7 @@
         data: [
             { "CNAE_DESC": "Agricultura, ganadería caza", "Recuento_de_CNAE_DESC": 1088 },
             { "CNAE_DESC": "Pesca, acuicultura y act relacionados", "Recuento_de_CNAE_DESC": 49 },
-            { "CNAE_DESC": "Extrac Crudos de petróleo y gas natural, activ servicios relacionados", "Recuento_de_CNAE_DESC": 30 },
+            { "CNAE_DESC": "Extrac Crudos Petróleo y Gas natural", "Recuento_de_CNAE_DESC": 30 },
             { "CNAE_DESC": "Selvicultura, explotación forestal ", "Recuento_de_CNAE_DESC": 71 },
             { "CNAE_DESC": "Transporte aéreo y espacial", "Recuento_de_CNAE_DESC": 32 },
             { "CNAE_DESC": "Transporte marítimo", "Recuento_de_CNAE_DESC": 16 },
@@ -173,6 +167,7 @@
         rotation="90 0 0" 
         scale="70 20 70"
         visible="false"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
         pause-animation-on-hover>
         </a-entity>
 
@@ -188,6 +183,7 @@
         <a-entity babia-task="taskVideo: true; taskVideoId: video"></a-entity>
     </a-scene>
 
+     <!-- Interacciones para Graficos y Video -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const pieCharts = ['#pieChart1', '#pieChart2', '#pieChart3', '#pieChart4', '#pieChart5'];
