@@ -24,7 +24,7 @@
   </script>
 </head>
 <body>
-    <a-scene stats >
+    <a-scene>
         <!-- Importar ambiente de oficina -->
         <a-assets>
             <a-asset-item id="office" src="assets\escenaae2grafic360.glb"></a-asset-item>
@@ -46,7 +46,15 @@
         <a-entity laser-controls="hand: right"></a-entity>
       </a-entity>
 
-        <!-- Pie Charts -->
+      <!-- Titulo de Grafico PieChart1 -->
+      <a-entity position="267 -66.8 -311.5" scale="25 25 30" rotation="0 0 0">
+        <!-- Background plane for title -->
+        <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+        <!-- Title text -->
+        <a-text value="PLAZAS POR CURSO" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
+      </a-entity>
+
+        <!-- Pie Charts1 -->
         <a-entity id="pieChart1" babia-pie='
         legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
         data: [
@@ -67,7 +75,10 @@
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
-        animation-on-hover></a-entity>
+        animation-on-hover>
+      </a-entity>
+    
+        
             
         <a-entity id="pieChart2" babia-pie='
         legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
@@ -220,5 +231,7 @@
         document.querySelector('a-scene').addEventListener('click', toggleVisibility);
       });
     </script>
+     <!-- Icon to indicate WASD movement -->
+     <img id="keyboardIcon" src="assets\teclado_direccion.png" alt="Use WASD keys to move">
 </body>
 </html>
