@@ -7,7 +7,6 @@
   <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
-  <script src="https://unpkg.com/aframe-orbit-controls-component/dist/aframe-orbit-controls-component.min.js"></script>
   <link rel="stylesheet" href="output.css">
   <link rel="stylesheet" href="styles.css">
 
@@ -28,7 +27,7 @@
     <a-scene stats >
         <!-- Importar ambiente de oficina -->
         <a-assets>
-            <a-asset-item id="office" src="assets/escenaaeggrafic2.glb"></a-asset-item>
+            <a-asset-item id="office" src="assets\escenaae2grafic360.glb"></a-asset-item>
         </a-assets>
 
         <!-- Entorno de la oficina -->
@@ -42,7 +41,7 @@
         <a-light type="point" intensity="1" position="-10 166 30"></a-light>
 
          <!-- Camera with WASD Controls -->
-      <a-entity camera wasd-controls="acceleration: 200" look-controls position="0.803 80 105">
+      <a-entity camera wasd-controls="acceleration: 500" look-controls position="0.803 80 105">
         <a-entity cursor="rayOrigin: mouse"></a-entity>
         <a-entity laser-controls="hand: right"></a-entity>
       </a-entity>
@@ -64,12 +63,11 @@
             {"TIPOCURSO_DESC": "Otros - Seminario", "Recuento de TIPOCURSO_DESC": 260},
             {"TIPOCURSO_DESC": "Otros - Curso de Formación", "Recuento de TIPOCURSO_DESC": 188},
             {"TIPOCURSO_DESC": "Otros - Reinvención", "Recuento de TIPOCURSO_DESC": 101}]'
-        position="267 115.90 -316" 
+        position="267 115.90 -318" 
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
-        pause-animation-on-hover></a-entity>
+        animation-on-hover></a-entity>
             
         <a-entity id="pieChart2" babia-pie='
         legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
@@ -92,8 +90,7 @@
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
-        pause-animation-on-hover></a-entity>
+        animation-on-hover></a-entity>
 
         <a-entity id="pieChart3" babia-pie='
         legend: true; palette: flat; key: CNAE_DESC; size: Recuento_de_CNAE_DESC;
@@ -118,8 +115,7 @@
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
-        pause-animation-on-hover>
+        animation-on-hover>
         </a-entity>
 
         <a-entity id="pieChart4" babia-pie='
@@ -143,12 +139,11 @@
         { "CNAE_DESC": "Act aux intermediación financiera", "Recuento_de_CNAE_DESC": 73 },
         { "CNAE_DESC": "Act informáticas", "Recuento_de_CNAE_DESC": 804 }
       ]' 
-      position="264 105.8 -198.6" 
+      position="264 105.8 -178" 
       rotation="90 0 0" 
       scale="70 20 70"
       visible="false"
-      animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
-      pause-animation-on-hover>
+      animation-on-hover>
     </a-entity>
 
         <a-entity id="pieChart5" babia-pie='
@@ -163,12 +158,11 @@
             { "CNAE_DESC": "Transporte terrestre", "Recuento_de_CNAE_DESC": 1146 },
             { "CNAE_DESC": "Actividades anexas a los transportes", "Recuento_de_CNAE_DESC": 415 }
         ]' 
-        position="-36 102.7 -479" 
+        position="-36 102.7 -496" 
         rotation="90 0 0" 
         scale="70 20 70"
         visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
-        pause-animation-on-hover>
+        animation-on-hover>
         </a-entity>
 
         <!-- Video Entity -->
