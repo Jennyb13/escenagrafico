@@ -47,30 +47,30 @@
       </a-entity>
 
       <!-- Titulo de Grafico PieChart1 -->
-      <a-entity position="267 -66.8 -311.5" scale="25 25 30" rotation="0 0 0">
+      <a-entity id="titleChart1" position="277 -66.8 -311.5" scale="25 25 30" rotation="0 0 0">
         <!-- Background plane for title -->
         <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
         <!-- Title text -->
         <a-text value="PLAZAS POR CURSO" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
       </a-entity>
 
-        <!-- Pie Charts1 -->
+        <!-- PLAZAS POR CURSO Pie Charts1 -->
         <a-entity id="pieChart1" babia-pie='
         legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
         data: [
-            {"TIPOCURSO_DESC": "Formación - Curso online", "Recuento de TIPOCURSO_DESC": 12798},
-            {"TIPOCURSO_DESC": "Formación - Curso Presencial", "Recuento de TIPOCURSO_DESC": 5142},
-            {"TIPOCURSO_DESC": "Formación - Cert Profesionalidad", "Recuento de TIPOCURSO_DESC": 3202},
-            {"TIPOCURSO_DESC": "PFAs - Curso Formación", "Recuento de TIPOCURSO_DESC": 3169},
-            {"TIPOCURSO_DESC": "Talleres - Curso Formación", "Recuento de TIPOCURSO_DESC": 2744},
-            {"TIPOCURSO_DESC": "PFAs - Cert Profesionalidad", "Recuento de TIPOCURSO_DESC": 2403},
-            {"TIPOCURSO_DESC": "Otros - Itinerario sociolaboral", "Recuento de TIPOCURSO_DESC": 1002},
-            {"TIPOCURSO_DESC": "Formación - Módulo", "Recuento de TIPOCURSO_DESC": 801},
-            {"TIPOCURSO_DESC": "Talleres - Cert Profesionalidad", "Recuento de TIPOCURSO_DESC": 439},
-            {"TIPOCURSO_DESC": "Formación - Esp Formativa Sepe", "Recuento de TIPOCURSO_DESC": 319},
-            {"TIPOCURSO_DESC": "Otros - Seminario", "Recuento de TIPOCURSO_DESC": 260},
-            {"TIPOCURSO_DESC": "Otros - Curso de Formación", "Recuento de TIPOCURSO_DESC": 188},
-            {"TIPOCURSO_DESC": "Otros - Reinvención", "Recuento de TIPOCURSO_DESC": 101}]'
+            {"TIPOCURSO_DESC": "Formación  Curso Online", "Recuento de TIPOCURSO_DESC": 12798},
+            {"TIPOCURSO_DESC": "Formación  Curso Presencial", "Recuento de TIPOCURSO_DESC": 5142},
+            {"TIPOCURSO_DESC": "Formación  Cert Profesionalidad", "Recuento de TIPOCURSO_DESC": 3202},
+            {"TIPOCURSO_DESC": "PFAs  Curso Formación", "Recuento de TIPOCURSO_DESC": 3169},
+            {"TIPOCURSO_DESC": "Talleres  Curso Formación", "Recuento de TIPOCURSO_DESC": 2744},
+            {"TIPOCURSO_DESC": "PFAs  Cert Profesionalidad", "Recuento de TIPOCURSO_DESC": 2403},
+            {"TIPOCURSO_DESC": "Otros  Itinerario sociolaboral", "Recuento de TIPOCURSO_DESC": 1002},
+            {"TIPOCURSO_DESC": "Formación  Módulo", "Recuento de TIPOCURSO_DESC": 801},
+            {"TIPOCURSO_DESC": "Talleres  Cert Profesionalidad", "Recuento de TIPOCURSO_DESC": 439},
+            {"TIPOCURSO_DESC": "Formación  Esp Formativa Sepe", "Recuento de TIPOCURSO_DESC": 319},
+            {"TIPOCURSO_DESC": "Otros  Seminario", "Recuento de TIPOCURSO_DESC": 260},
+            {"TIPOCURSO_DESC": "Otros  Curso de Formación", "Recuento de TIPOCURSO_DESC": 188},
+            {"TIPOCURSO_DESC": "Otros  Reinvención", "Recuento de TIPOCURSO_DESC": 101}]'
         position="267 115.90 -318" 
         rotation="90 0 0" 
         scale="70 20 70" 
@@ -78,8 +78,15 @@
         animation-on-hover>
       </a-entity>
     
-        
-            
+      <!-- Titulo de Grafico PieChart2 -->
+      <a-entity id="titleChart2" position="-371 -66.8 -311.5" scale="25 25 30" rotation="0 0 0">
+        <!-- Background plane for title -->
+        <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+        <!-- Title text -->
+        <a-text value="ATENCIONES POR AGENCIA" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
+      </a-entity>
+
+       <!-- ATENCIONES POR AGENCIA Pie Charts2 -->
         <a-entity id="pieChart2" babia-pie='
         legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
         data: [
@@ -89,20 +96,29 @@
             {"AZ": "Arganzuela","Recuento de AZ": 97564},
             {"AZ": "Hortaleza-Barajas","Recuento de AZ": 91168},
             {"AZ": "Prog Fomento Empleo","Recuento de AZ": 85437},
-            { "AZ": "Carabanchel","Recuento de AZ": 81646},
-            { "AZ": "Retiro","Recuento de AZ": 79265},
+            {"AZ": "Carabanchel","Recuento de AZ": 81646},
+            {"AZ": "Retiro","Recuento de AZ": 79265},
             {"AZ": "Tetúan","Recuento de AZ": 73415},
-            { "AZ": "Talento y Empresas", "Recuento de AZ": 28011},
-            { "AZ": "AutoEmpleo","Recuento de AZ": 9590},
+            {"AZ": "Talento y Empresas", "Recuento de AZ": 28011},
+            {"AZ": "AutoEmpleo","Recuento de AZ": 9590},
             {"AZ": "Formación", "Recuento de AZ": 1491},
             {"AZ": "Programas Especiales","Recuento de AZ": 1064},
-            { "AZ": "Otros Municipios","Recuento de AZ": 636}]' 
+            {"AZ": "Otros Municipios","Recuento de AZ": 636}]' 
         position="-360 115.90 -320" 
         rotation="90 0 0" 
         scale="70 20 70" 
         visible="false"
         animation-on-hover></a-entity>
 
+        <!-- Titulo de Grafico PieChart3 -->
+        <a-entity id="titleChart3" position="-371 -65.8 -170.5" scale="25 25 30" rotation="0 0 0">
+          <!-- Background plane for title -->
+          <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+          <!-- Title text -->
+          <a-text value="ACT INDUSTRIAL Y ENERGIA" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
+        </a-entity>
+
+      <!-- ACTIVIDADES INDUSTRIAL Y DE ENERGIA - INTERMEDIACION Pie Charts3 -->
         <a-entity id="pieChart3" babia-pie='
         legend: true; palette: flat; key: CNAE_DESC; size: Recuento_de_CNAE_DESC;
         data: [
@@ -129,6 +145,15 @@
         animation-on-hover>
         </a-entity>
 
+      <!-- Titulo de Grafico PieChart4 -->
+      <a-entity id="titleChart4" position="271.5 -66 -178" scale="25 25 30" rotation="0 0 0">
+        <!-- Background plane for title -->
+        <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+        <!-- Title text -->
+        <a-text value="SECTOR SERVICIOS" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
+      </a-entity>
+
+       <!-- SERCTOR SERVICIOS - INTERMEDIACION Pie Charts4 -->
         <a-entity id="pieChart4" babia-pie='
       legend: true; palette: foxy; key: CNAE_DESC; size: Recuento_de_CNAE_DESC; 
       data: [
@@ -157,6 +182,16 @@
       animation-on-hover>
     </a-entity>
 
+    <!-- Titulo de Grafico PieChart5 -->
+    <a-entity id="titleChart5" position="-49 -50 -478" scale="50 25 30" rotation="0 0 0">
+      <!-- Background plane for title -->
+      <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+      <!-- Title text -->
+      <a-text value="ACT PRIMARIA Y TRANSPORTE" align="center" position="0 3.5 0.1" scale="1.5 3 3"color="#000"></a-text>
+    </a-entity>
+
+
+       <!-- ACTIVIDADES PRIMARIA Y DE TRANSPORTE - INTERMEDIACION Pie Charts5 -->
         <a-entity id="pieChart5" babia-pie='
         legend: true; palette: ubuntu; key: CNAE_DESC; size: Recuento_de_CNAE_DESC; 
         data: [
@@ -169,7 +204,7 @@
             { "CNAE_DESC": "Transporte terrestre", "Recuento_de_CNAE_DESC": 1146 },
             { "CNAE_DESC": "Actividades anexas a los transportes", "Recuento_de_CNAE_DESC": 415 }
         ]' 
-        position="-36 102.7 -496" 
+        position="-36 133 -496" 
         rotation="90 0 0" 
         scale="70 20 70"
         visible="false"
