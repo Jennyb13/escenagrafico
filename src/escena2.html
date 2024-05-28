@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>3D Charts with A-Frame and BabiaXR</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
+  <script src="src\library\aframe-babia-components.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
   <link rel="stylesheet" href="output.css">
@@ -104,7 +105,8 @@
       <!-- Background plane for title -->
       <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
       <!-- Title text -->
-      <a-text value="ACT INDUSTRIAL Y ENERGIA" align="center" position="0 3.5 0.1" scale="1.5 3 3" color="#000"></a-text>
+      <a-text value="ACT INDUSTRIAL Y ENERGIA" align="center" position="0 3.5 0.1" scale="1.5 3 3"
+        color="#000"></a-text>
     </a-entity>
 
     <!-- ACTIVIDADES INDUSTRIAL Y DE ENERGIA - INTERMEDIACION Pie Charts3 -->
@@ -135,7 +137,7 @@
       <!-- Background plane for title -->
       <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
       <!-- Title text -->
-      <a-text value="SECTOR SERVICIOS" align="center" position="0 3.5 0.1" scale= "1.5 3 3" color="#000"></a-text>
+      <a-text value="SECTOR SERVICIOS" align="center" position="0 3.5 0.1" scale="1.5 3 3" color="#000"></a-text>
     </a-entity>
 
     <!-- SERCTOR SERVICIOS - INTERMEDIACION Pie Charts4 -->
@@ -193,6 +195,13 @@
 
     <!-- Tarea de Descripción de Video -->
     <a-entity babia-task="taskVideo: true; taskVideoId: video"></a-entity>
+
+    <svg id="video" class="voice-button" onclick="toggleVoice()" aria-label="Reproducir voz"
+      xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#e8eaed">
+      <path
+        d="M640-440v-80h160v80H640Zm48 280-128-96 48-64 128 96-48 64Zm-80-480-48-64 128-96 48 64-128 96ZM120-360v-240h160l200-200v640L280-360H120Zm280-246-86 86H200v80h114l86 86v-252ZM300-480Z" />
+    </svg>
+
   </a-scene>
 
   <!-- Interacciones para Graficos y Video -->
@@ -237,6 +246,22 @@
 
       document.querySelector('a-scene').addEventListener('click', toggleVisibility);
     });
+
+    function toggleVoice() {
+        fetch("https://aceback-1.onrender.com/videos/4")
+            .then(function (e) {
+                return e.json();
+            })
+            .then(function (e) {
+                var speechText = e.description;
+                utterance = new SpeechSynthesisUtterance(speechText);
+                speechSynthesis.speak(utterance);
+            })
+            .catch(function (e) {
+                console.error("Error al obtener los datos:", e);
+            });
+    }
+
   </script>
   <!-- Icon to indicate WASD movement -->
   <img id="keyboardIcon" src="assets\teclado_direccion.png" alt="Use WASD keys to move">
