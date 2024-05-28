@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>3D Charts with A-Frame and BabiaXR</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="src\library\aframe-babia-components.js"></script>
+  <script src="library\aframe-babia-components.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
   <link rel="stylesheet" href="output.css">
@@ -39,7 +39,7 @@
     <a-light type="point" intensity="1" position="-10 166 30"></a-light>
 
     <!-- Camera with WASD Controls -->
-    <a-entity camera wasd-controls="acceleration: 500" look-controls position="0.803 80 105">
+    <a-entity id="camera" camera wasd-controls="acceleration: 500" look-controls position="0.803 80 105">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
       <a-entity laser-controls="hand: right"></a-entity>
     </a-entity>
