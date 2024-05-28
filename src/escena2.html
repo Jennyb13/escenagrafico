@@ -23,39 +23,36 @@
     });
   </script>
 </head>
+
 <body>
-    <a-scene>
-        <!-- Importar ambiente de oficina -->
-        <a-assets>
-            <a-asset-item id="office" src="assets\escenaae2grafic360.glb"></a-asset-item>
-        </a-assets>
+  <a-scene>
+    <!-- Importar ambiente de oficina -->
+    <a-assets>
+      <a-asset-item id="office" src="assets\escenaae2grafic360.glb"></a-asset-item>
+    </a-assets>
 
-        <!-- Entorno de la oficina -->
-        <a-entity 
-        gltf-model="#office" 
-        scale="120 100 120" 
-        rotation="0 270 0" 
-        position="-49 109 -970"></a-entity>
+    <!-- Entorno de la oficina -->
+    <a-entity gltf-model="#office" scale="120 100 120" rotation="0 270 0" position="-49 109 -970"></a-entity>
 
-        <!-- Light -->
-        <a-light type="point" intensity="1" position="-10 166 30"></a-light>
+    <!-- Light -->
+    <a-light type="point" intensity="1" position="-10 166 30"></a-light>
 
-         <!-- Camera with WASD Controls -->
-      <a-entity camera wasd-controls="acceleration: 500" look-controls position="0.803 80 105">
-        <a-entity cursor="rayOrigin: mouse"></a-entity>
-        <a-entity laser-controls="hand: right"></a-entity>
-      </a-entity>
+    <!-- Camera with WASD Controls -->
+    <a-entity camera wasd-controls="acceleration: 500" look-controls position="0.803 80 105">
+      <a-entity cursor="rayOrigin: mouse"></a-entity>
+      <a-entity laser-controls="hand: right"></a-entity>
+    </a-entity>
 
-      <!-- Titulo de Grafico PieChart1 -->
-      <a-entity id="titleChart1" position="277 -66.8 -311.5" scale="25 25 30" rotation="0 0 0">
-        <!-- Background plane for title -->
-        <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
-        <!-- Title text -->
-        <a-text value="PLAZAS POR CURSO" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
-      </a-entity>
+    <!-- Titulo de Grafico PieChart1 -->
+    <a-entity id="titleChart1" position="277 -66.8 -311.5" scale="25 25 30" rotation="0 0 0" visible="true">
+      <!-- Background plane for title -->
+      <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+      <!-- Title text -->
+      <a-text value="PLAZAS POR CURSO" align="center" position="0 3.5 0.1" scale="2 3 3" color="#000"></a-text>
+    </a-entity>
 
-        <!-- PLAZAS POR CURSO Pie Charts1 -->
-        <a-entity id="pieChart1" babia-pie='
+    <!-- PLAZAS POR CURSO Pie Charts1 -->
+    <a-entity id="pieChart1" babia-pie='
         legend: true; palette: blues; key: TIPOCURSO_DESC; size: Recuento de TIPOCURSO_DESC;
         data: [
             {"TIPOCURSO_DESC": "Formación  Curso Online", "Recuento de TIPOCURSO_DESC": 12798},
@@ -70,24 +67,20 @@
             {"TIPOCURSO_DESC": "Formación  Esp Formativa Sepe", "Recuento de TIPOCURSO_DESC": 319},
             {"TIPOCURSO_DESC": "Otros  Seminario", "Recuento de TIPOCURSO_DESC": 260},
             {"TIPOCURSO_DESC": "Otros  Curso de Formación", "Recuento de TIPOCURSO_DESC": 188},
-            {"TIPOCURSO_DESC": "Otros  Reinvención", "Recuento de TIPOCURSO_DESC": 101}]'
-        position="267 115.90 -318" 
-        rotation="90 0 0" 
-        scale="70 20 70" 
-        visible="false"
-        animation-on-hover>
-      </a-entity>
-    
-      <!-- Titulo de Grafico PieChart2 -->
-      <a-entity id="titleChart2" position="-371 -66.8 -311.5" scale="25 25 30" rotation="0 0 0">
-        <!-- Background plane for title -->
-        <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
-        <!-- Title text -->
-        <a-text value="ATENCIONES POR AGENCIA" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
-      </a-entity>
+            {"TIPOCURSO_DESC": "Otros  Reinvención", "Recuento de TIPOCURSO_DESC": 101}]' position="267 115.90 -318"
+      rotation="90 0 0" scale="70 20 70" visible="false" animation-on-hover>
+    </a-entity>
 
-       <!-- ATENCIONES POR AGENCIA Pie Charts2 -->
-        <a-entity id="pieChart2" babia-pie='
+    <!-- Titulo de Grafico PieChart2 -->
+    <a-entity id="titleChart2" position="-371 -66.8 -311.5" scale="25 25 30" rotation="0 0 0" visible="true">
+      <!-- Background plane for title -->
+      <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+      <!-- Title text -->
+      <a-text value="ATENCIONES POR AGENCIA" align="center" position="0 3.5 0.1" scale="2 3 3" color="#000"></a-text>
+    </a-entity>
+
+    <!-- ATENCIONES POR AGENCIA Pie Charts2 -->
+    <a-entity id="pieChart2" babia-pie='
         legend: true; palette: sunset; key: AZ; size: Recuento de AZ;
         data: [
             {"AZ": "Puente Vallecas","Recuento de AZ": 167687},
@@ -103,23 +96,19 @@
             {"AZ": "AutoEmpleo","Recuento de AZ": 9590},
             {"AZ": "Formación", "Recuento de AZ": 1491},
             {"AZ": "Programas Especiales","Recuento de AZ": 1064},
-            {"AZ": "Otros Municipios","Recuento de AZ": 636}]' 
-        position="-360 115.90 -320" 
-        rotation="90 0 0" 
-        scale="70 20 70" 
-        visible="false"
-        animation-on-hover></a-entity>
+            {"AZ": "Otros Municipios","Recuento de AZ": 636}]' position="-360 115.90 -320" rotation="90 0 0"
+      scale="70 20 70" visible="false" animation-on-hover></a-entity>
 
-        <!-- Titulo de Grafico PieChart3 -->
-        <a-entity id="titleChart3" position="-371 -65.8 -170.5" scale="25 25 30" rotation="0 0 0">
-          <!-- Background plane for title -->
-          <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
-          <!-- Title text -->
-          <a-text value="ACT INDUSTRIAL Y ENERGIA" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
-        </a-entity>
+    <!-- Titulo de Grafico PieChart3 -->
+    <a-entity id="titleChart3" position="-371 -65.8 -170.5" scale="25 25 30" rotation="0 0 0" visible="true">
+      <!-- Background plane for title -->
+      <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+      <!-- Title text -->
+      <a-text value="ACT INDUSTRIAL Y ENERGIA" align="center" position="0 3.5 0.1" scale="1.5 3 3" color="#000"></a-text>
+    </a-entity>
 
-      <!-- ACTIVIDADES INDUSTRIAL Y DE ENERGIA - INTERMEDIACION Pie Charts3 -->
-        <a-entity id="pieChart3" babia-pie='
+    <!-- ACTIVIDADES INDUSTRIAL Y DE ENERGIA - INTERMEDIACION Pie Charts3 -->
+    <a-entity id="pieChart3" babia-pie='
         legend: true; palette: flat; key: CNAE_DESC; size: Recuento_de_CNAE_DESC;
         data: [
             { "CNAE_DESC": "Ind Prod Alimenticios y bebidas", "Recuento_de_CNAE_DESC": 1354 },
@@ -138,23 +127,19 @@
             { "CNAE_DESC": "Fabric Muebles. Otras industrias manufactureras", "Recuento_de_CNAE_DESC": 49 },
             { "CNAE_DESC": "Fabric Equipo e instrumentos medico-quirúrgicos", "Recuento_de_CNAE_DESC": 11 },
             { "CNAE_DESC": "Ind Madera y Corcho", "Recuento_de_CNAE_DESC": 11 }
-        ]' position="-364 110.4 -170.5" 
-        rotation="90 0 0" 
-        scale="70 20 70" 
-        visible="false"
-        animation-on-hover>
-        </a-entity>
+        ]' position="-364 110.4 -170.5" rotation="90 0 0" scale="70 20 70" visible="false" animation-on-hover>
+    </a-entity>
 
-      <!-- Titulo de Grafico PieChart4 -->
-      <a-entity id="titleChart4" position="271.5 -66 -178" scale="25 25 30" rotation="0 0 0">
-        <!-- Background plane for title -->
-        <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
-        <!-- Title text -->
-        <a-text value="SECTOR SERVICIOS" align="center" position="0 3.5 0.1" scale="2 3 3"color="#000"></a-text>
-      </a-entity>
+    <!-- Titulo de Grafico PieChart4 -->
+    <a-entity id="titleChart4" position="271.5 -66 -178" scale="25 25 30" rotation="0 0 0" visible="true">
+      <!-- Background plane for title -->
+      <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
+      <!-- Title text -->
+      <a-text value="SECTOR SERVICIOS" align="center" position="0 3.5 0.1" scale= "1.5 3 3" color="#000"></a-text>
+    </a-entity>
 
-       <!-- SERCTOR SERVICIOS - INTERMEDIACION Pie Charts4 -->
-        <a-entity id="pieChart4" babia-pie='
+    <!-- SERCTOR SERVICIOS - INTERMEDIACION Pie Charts4 -->
+    <a-entity id="pieChart4" babia-pie='
       legend: true; palette: foxy; key: CNAE_DESC; size: Recuento_de_CNAE_DESC; 
       data: [
         { "CNAE_DESC": "Administración pública, defensa y seguridad social obligatoria", "Recuento_de_CNAE_DESC": 13273 },
@@ -174,25 +159,21 @@
         { "CNAE_DESC": "Correos y telecomunicaciones", "Recuento_de_CNAE_DESC": 123 },
         { "CNAE_DESC": "Act aux intermediación financiera", "Recuento_de_CNAE_DESC": 73 },
         { "CNAE_DESC": "Act informáticas", "Recuento_de_CNAE_DESC": 804 }
-      ]' 
-      position="264 105.8 -178" 
-      rotation="90 0 0" 
-      scale="70 20 70"
-      visible="false"
-      animation-on-hover>
+      ]' position="264 105.8 -178" rotation="90 0 0" scale="70 20 70" visible="false" animation-on-hover>
     </a-entity>
 
     <!-- Titulo de Grafico PieChart5 -->
-    <a-entity id="titleChart5" position="-49 -50 -478" scale="50 25 30" rotation="0 0 0">
+    <a-entity id="titleChart5" position="-49 -50 -478" scale="50 25 30" rotation="0 0 0" visible="true">
       <!-- Background plane for title -->
       <a-plane position="0 3.5 0" width="6" height="1.5" color="#FFF" opacity="0.95"></a-plane>
       <!-- Title text -->
-      <a-text value="ACT PRIMARIA Y TRANSPORTE" align="center" position="0 3.5 0.1" scale="1.5 3 3"color="#000"></a-text>
+      <a-text value="ACT PRIMARIA Y TRANSPORTE" align="center" position="0 3.5 0.1" scale="1.5 3 3"
+        color="#000"></a-text>
     </a-entity>
 
 
-       <!-- ACTIVIDADES PRIMARIA Y DE TRANSPORTE - INTERMEDIACION Pie Charts5 -->
-        <a-entity id="pieChart5" babia-pie='
+    <!-- ACTIVIDADES PRIMARIA Y DE TRANSPORTE - INTERMEDIACION Pie Charts5 -->
+    <a-entity id="pieChart5" babia-pie='
         legend: true; palette: ubuntu; key: CNAE_DESC; size: Recuento_de_CNAE_DESC; 
         data: [
             { "CNAE_DESC": "Agricultura, ganadería caza", "Recuento_de_CNAE_DESC": 1088 },
@@ -203,70 +184,62 @@
             { "CNAE_DESC": "Transporte marítimo", "Recuento_de_CNAE_DESC": 16 },
             { "CNAE_DESC": "Transporte terrestre", "Recuento_de_CNAE_DESC": 1146 },
             { "CNAE_DESC": "Actividades anexas a los transportes", "Recuento_de_CNAE_DESC": 415 }
-        ]' 
-        position="-36 133 -496" 
-        rotation="90 0 0" 
-        scale="70 20 70"
-        visible="false"
-        animation-on-hover>
-        </a-entity>
+        ]' position="-36 133 -496" rotation="90 0 0" scale="70 20 70" visible="false" animation-on-hover>
+    </a-entity>
 
-        <!-- Video Entity -->
-        <a-video id="video" src="assets/saltavideosala.mp4" 
-            width="25" 
-            height="15" 
-            position="-44 200 -710" 
-            scale="20 20 20"
-            visible="false"></a-video>
+    <!-- Video Entity -->
+    <a-video id="video" src="assets/saltavideosala.mp4" width="25" height="15" position="-44 200 -710" scale="20 20 20"
+      visible="false"></a-video>
 
-        <!-- Tarea de Descripción de Video -->
-        <a-entity babia-task="taskVideo: true; taskVideoId: video"></a-entity>
-    </a-scene>
+    <!-- Tarea de Descripción de Video -->
+    <a-entity babia-task="taskVideo: true; taskVideoId: video"></a-entity>
+  </a-scene>
 
-     <!-- Interacciones para Graficos y Video -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const pieCharts = ['#pieChart1', '#pieChart2', '#pieChart3', '#pieChart4', '#pieChart5'];
-        const video = document.querySelector('#video');
-        let clickCount = 0;
+  <!-- Interacciones para Graficos y Video -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pieCharts = ['#pieChart1', '#pieChart2', '#pieChart3', '#pieChart4', '#pieChart5'];
+      const video = document.querySelector('#video');
+      let clickCount = 0;
 
-        const toggleVisibility = async () => {
-          if (clickCount === 0) {
-            console.log('Mostrar gráficos');
-            pieCharts.forEach(id => {
-              const chart = document.querySelector(id);
-              if (chart) {
-                chart.setAttribute('visible', 'true');
-              } else {
-                console.error(`Gráfico no encontrado: ${id}`);
-              }
-            });
-          } else if (clickCount === 1) {
-            console.log('Ocultar gráficos');
-            pieCharts.forEach(id => {
-              const chart = document.querySelector(id);
-              if (chart) {
-                chart.setAttribute('visible', 'false');
-              } else {
-                console.error(`Gráfico no encontrado: ${id}`);
-              }
-            });
-          } else if (clickCount === 2) {
-            console.log('Mostrar y reproducir video');
-            video.setAttribute('visible', 'true');
-            await video.play();
-          } else if (clickCount === 3) {
-            console.log('Pausar y ocultar video');
-            video.pause();
-            video.setAttribute('visible', 'false');
-          }
-          clickCount = (clickCount + 1) % 4;
-        };
+      const toggleVisibility = async () => {
+        if (clickCount === 0) {
+          console.log('Mostrar gráficos');
+          pieCharts.forEach(id => {
+            const chart = document.querySelector(id);
+            if (chart) {
+              chart.setAttribute('visible', 'true');
+            } else {
+              console.error(`Gráfico no encontrado: ${id}`);
+            }
+          });
+        } else if (clickCount === 1) {
+          console.log('Ocultar gráficos');
+          pieCharts.forEach(id => {
+            const chart = document.querySelector(id);
+            if (chart) {
+              chart.setAttribute('visible', 'false');
+            } else {
+              console.error(`Gráfico no encontrado: ${id}`);
+            }
+          });
+        } else if (clickCount === 2) {
+          console.log('Mostrar y reproducir video');
+          video.setAttribute('visible', 'true');
+          await video.play();
+        } else if (clickCount === 3) {
+          console.log('Pausar y ocultar video');
+          video.pause();
+          video.setAttribute('visible', 'false');
+        }
+        clickCount = (clickCount + 1) % 4;
+      };
 
-        document.querySelector('a-scene').addEventListener('click', toggleVisibility);
-      });
-    </script>
-     <!-- Icon to indicate WASD movement -->
-     <img id="keyboardIcon" src="assets\teclado_direccion.png" alt="Use WASD keys to move">
+      document.querySelector('a-scene').addEventListener('click', toggleVisibility);
+    });
+  </script>
+  <!-- Icon to indicate WASD movement -->
+  <img id="keyboardIcon" src="assets\teclado_direccion.png" alt="Use WASD keys to move">
 </body>
+
 </html>
