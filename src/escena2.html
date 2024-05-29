@@ -227,7 +227,7 @@
           pieCharts.forEach(id => {
             const chart = document.querySelector(id);
             if (chart) {
-              chart.setAttribute('visible', 'false');
+              chart.setAttribute('visible', 'true');
             } else {
               console.error(`Gráfico no encontrado: ${id}`);
             }
@@ -247,6 +247,8 @@
       document.querySelector('a-scene').addEventListener('click', toggleVisibility);
     });
 
+    <!-- Boton de audio presentacion de sala virtual -->
+
     function toggleVoice() {
         fetch("https://aceback-1.onrender.com/videos/4")
             .then(function (e) {
@@ -263,7 +265,7 @@
     }
 
   </script>
-  <!-- Icon to indicate WASD movement -->
+  <!-- Icono movimiento en escena WASD movement -->
   <img id="keyboardIcon" src="assets\teclado_direccion.png" alt="Use WASD keys to move">
 </body>
 
