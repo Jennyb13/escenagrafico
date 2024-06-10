@@ -22,6 +22,29 @@
         });
       }
     });
+
+   // Implementacion 1, detectar dispositivo
+    function detectDevice() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Detect VR headset
+      if (navigator.xr && navigator.xr.isSessionSupported) {
+        return 'vr';
+      }
+
+      // Detect mobile devices
+      if (/android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return 'mobile';
+      }
+
+      // Default to desktop
+      return 'desktop';
+    }
+
+    const deviceType = detectDevice();
+    console.log('Device Type:', deviceType);
+
+
   </script>
 </head>
 
@@ -204,15 +227,20 @@
 
   </a-scene>
 
-  <!-- Interacciones para Graficos y Video -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const pieCharts = ['#pieChart1', '#pieChart2', '#pieChart3', '#pieChart4', '#pieChart5'];
-        const titles = ['#titleChart1', '#titleChart2', '#titleChart3', '#titleChart4', '#titleChart5'];
-        const video = document.querySelector('#video');
-        let clickCount = 0;
+  <!-- Interacciones para Graficos y Video 
+   Implementacion 1 cambios en la detccion del dispositivo-->
 
-        const toggleVisibility = () => {
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const deviceType = detectDevice();
+
+    const scene = document.querySelector('a-scene');
+    const pieCharts = ['#pieChart1', '#pieChart2', '#pieChart3', '#pieChart4', '#pieChart5'];
+    const titles = ['#titleChart1', '#titleChart2', '#titleChart3', '#titleChart4', '#titleChart5'];
+    const video = document.querySelector('#video');
+    let clickCount = 0;
+
+    const toggleVisibility = () => {
             if (clickCount === 0) {
                 console.log('Mostrar video');
                 video.setAttribute('visible', 'true');
@@ -259,27 +287,33 @@
             clickCount = (clickCount + 1) % 4;
         };
 
-        document.querySelector('a-scene').addEventListener('click', toggleVisibility);
+  // Implementacion 1 deteccion de dispositivo
 
-        const voiceButton = document.querySelector('.voice-button');
-        voiceButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Detener la propagación del evento de clic
-            if (speechSynthesis.speaking) {
-                speechSynthesis.cancel();
-            } else {
-                fetch("https://aceback-1.onrender.com/videos/4")
-                    .then(response => response.json())
-                    .then(data => {
-                        const speechText = data.description;
-                        const utterance = new SpeechSynthesisUtterance(speechText);
-                        speechSynthesis.speak(utterance);
-                    })
-                    .catch(error => {
-                        console.error("Error al obtener los datos:", error);
-                    });
-            }
-        });
+        if (deviceType === 'mobile') {
+      scene.addEventListener('touchstart', toggleVisibility);
+    } else {
+      scene.addEventListener('click', toggleVisibility);
+    }
+
+    const voiceButton = document.querySelector('.voice-button');
+    voiceButton.addEventListener(deviceType === 'mobile' ? 'touchstart' : 'click', (event) => {
+      event.stopPropagation(); // Detener la propagación del evento de clic
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+      } else {
+        fetch("https://aceback-1.onrender.com/videos/4")
+          .then(response => response.json())
+          .then(data => {
+            const speechText = data.description;
+            const utterance = new SpeechSynthesisUtterance(speechText);
+            speechSynthesis.speak(utterance);
+          })
+          .catch(error => {
+            console.error("Error al obtener los datos:", error);
+          });
+      }
     });
+  });
 </script>
 
   <!-- Icono movimiento en escena WASD movement -->

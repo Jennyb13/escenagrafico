@@ -35,3 +35,15 @@
     color: white;
     font-size: 35px;
   }
+
+  @media (max-width: 768px) {
+    .voice-button {
+      bottom: 100px; /* Ajusta la posición del botón de voz */
+      right: 20px; /* Ajusta la posición del botón de voz */
+    }
+    #keyboardIcon {
+      bottom: 100px; /* Ajusta la posición del icono del teclado */
+      right: 20px; /* Ajusta la posición del icono del teclado */
+    }
+  }
+  
